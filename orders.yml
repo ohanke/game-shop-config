@@ -1,11 +1,4 @@
-server:
-  port: 9000
-  error:
-    include-stacktrace: never
-
 spring:
-  application:
-    name: orders
   jpa:
     defer-datasource-initialization: true
     hibernate:
