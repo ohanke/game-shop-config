@@ -4,25 +4,26 @@ server:
     include-stacktrace: never
 
 spring:
+  application:
+    name: orders
+  datasource:
+    password: root
+    url: jdbc:postgresql://postgres:5432/orders
+    username: root
   jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create-drop
-      show:
-        sql: true
-  h2:
-    console:
-      enabled: true
-      path: /console/
-    datasource:
-      url: jdbc:h2:mem:gameshopdb
+    #    hibernate:
+    #      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
   kafka:
     producer:
       bootstrap-servers:
-        - localhost:9092
+        - broker:9092
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-
 eureka:
   client:
     serviceUrl:

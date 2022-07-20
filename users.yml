@@ -15,31 +15,34 @@ management:
       exposure:
         include: "*"
     
+spring:
+  application:
+    name: users
+  datasource:
+    password: root
+    url: jdbc:postgresql://postgres:5432/users
+    username: root
   jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create-drop
-      show:
-        sql: true
-        
-  h2:
-    console:
-      enabled: true
-      path: /console/
-    datasource:
-      url: jdbc:h2:mem:gameshopdb
-    
+    #    hibernate:
+    #      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
   kafka:
     producer:
       bootstrap-servers:
-        - localhost:9092
+        - broker:9092
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-
+      
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
 
 resilience4j.circuitbreaker:
   instances:
