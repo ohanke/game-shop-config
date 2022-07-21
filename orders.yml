@@ -24,10 +24,6 @@ spring:
         - broker:9092
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
 
 resilience4j.circuitbreaker:
   instances:

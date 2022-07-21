@@ -37,12 +37,6 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka
-    fetch-registry: true
-    register-with-eureka: true
 
 resilience4j.circuitbreaker:
   instances:
