@@ -62,3 +62,7 @@ management:
     web:
       exposure:
         include: "*"
+  metrics:
+    export:
+      graphite:
+        step: 1s
