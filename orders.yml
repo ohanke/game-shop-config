@@ -64,4 +64,5 @@ management:
   metrics:
     export:
       graphite:
+        port: 8125
         step: 1s
