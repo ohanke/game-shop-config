@@ -2,18 +2,6 @@ server:
   port: 8090
   error:
     include-stacktrace: never
-
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoint:
-    health:
-      show-details: "ALWAYS"
-  endpoints:
-    web:
-      exposure:
-        include: "*"
     
 spring:
   application:
@@ -62,3 +50,15 @@ resilience4j.circuitbreaker:
       permittedNumberOfCallsInHalfOpenState: 3
       slidingWindowSize: 10
       slidingWindowType: COUNT_BASED
+      
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
