@@ -64,5 +64,5 @@ management:
   metrics:
     export:
       graphite:
-#        host: graphite
         step: 1s
+        host: graphite
